@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('GetProject') {
             steps {
-                git 'https://github.com/takfarinassaber/CT5171_springboot.git'
+                git 'https://github.com/NiamhC503/TestSpring.git'
             }
         }
         stage ('build') {
@@ -16,6 +16,13 @@ pipeline {
         stage ('Package') {
             steps {
                 sh 'mvn package'
+            }
+        }
+        stage ('Archive')
+        {
+            steps {
+                archiveArtifacts allowEmptyArchive: true,
+                    artifacts: '**/demo*.war'
             }
         }
     }
