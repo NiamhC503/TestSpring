@@ -17,7 +17,7 @@ public class DemoApplication {
 
 	@RequestMapping("/hello")
 	public String hello2(){
-		return "Hello Again!";
+		return "Hello Again from Jenkins!";
 	}
 
 	public static void main(String[] args) {
