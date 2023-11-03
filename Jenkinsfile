@@ -18,11 +18,15 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage ('Archive')
-        {
+        stage ('Archive') {
             steps {
                 archiveArtifacts allowEmptyArchive: true,
                     artifacts: '**/demo*.war'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                sh 'docker build -f Dockerfile -t myapp . '
             }
         }
     }
